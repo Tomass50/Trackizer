@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Image, Button} from 'react-native';
 import AppleBtn from '../components/appleBtn';
 import GoogleBtn from '../components/googleBtn';
 import FacebookBtn from '../components/FacebookBtn';
+import SecondaryBtn from '../components/SecondaryBtn';
 
 const Register: React.FC = () => {
   return (
@@ -20,6 +21,15 @@ const Register: React.FC = () => {
       </View>
 
       <Text style={styles.text}>or</Text>
+
+      <View style={styles.secBtnContainer}>
+        <SecondaryBtn title="Sign up with E-mail" />
+
+        <Text style={styles.caption}>
+          By registering, you agree to our Terms of Use. Learn how we collect,
+          use and share your data.
+        </Text>
+      </View>
     </View>
   );
 };
@@ -40,17 +50,30 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginBottom: 75,
     gap: 16,
   },
+  secBtnContainer: {
+    gap: 10,
+    bottom: 25,
+  },
   text: {
-    bottom: 150,
+    bottom: 50,
     fontSize: 14,
     fontStyle: 'normal',
     fontWeight: '600',
     lineHeight: 20,
     color: '#fff',
+  },
+  caption: {
+    textAlign: 'center',
+    color: '#666680',
+    fontSize: 12,
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: 20,
+    letterSpacing: 0.2,
   },
 });
 export default Register;
