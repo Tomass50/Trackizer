@@ -10,11 +10,15 @@ import {
   View,
 } from 'react-native';
 import Register from './src/screens/Register';
+import SecRegister from './src/screens/SecRegister';
+import Login from './src/screens/Login';
 
 function App(): JSX.Element {
   return (
     <View style={styles.globalContainer}>
-      <Register />
+      {/* <Register /> */}
+      {/* <SecRegister /> */}
+      {/* <Login /> */}
     </View>
   );
 }

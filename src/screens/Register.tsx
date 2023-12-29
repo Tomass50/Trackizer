@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Button} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 import AppleBtn from '../components/appleBtn';
 import GoogleBtn from '../components/googleBtn';
 import FacebookBtn from '../components/FacebookBtn';
@@ -7,7 +14,7 @@ import SecondaryBtn from '../components/SecondaryBtn';
 
 const Register: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={require('../Assets/logo.png')}
         alt="logo"
@@ -30,7 +37,7 @@ const Register: React.FC = () => {
           use and share your data.
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
