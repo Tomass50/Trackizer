@@ -14,7 +14,7 @@ import SecondaryBtn from '../components/SecondaryBtn';
 
 const SubsInfo = () => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SafeAreaView />
 
       <View style={{alignItems: 'center'}}>

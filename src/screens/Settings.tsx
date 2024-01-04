@@ -24,7 +24,7 @@ import MySwitch from '../components/Switch';
 
 const Settings = () => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SafeAreaView />
       <View style={styles.headerContainer}>
         <SvgXml xml={svgBack} />

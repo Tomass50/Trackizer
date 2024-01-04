@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {TextInput, View, Text, StyleSheet} from 'react-native';
 
 type InputProps = {
-  label: string;
-  value: string;
-  onChange: (text: string) => void;
+  label?: string;
+  value?: string;
+  onChange?: (text: string) => void;
 };
 
 const Input: React.FC<InputProps> = ({label, value, onChange}) => {

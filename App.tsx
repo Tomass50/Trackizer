@@ -14,16 +14,19 @@ import SecRegister from './src/screens/SecRegister';
 import Login from './src/screens/Login';
 import Settings from './src/screens/Settings';
 import SubsInfo from './src/screens/SubsInfo';
+import NewSubs from './src/screens/NewSub';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 function App(): JSX.Element {
   return (
-    <View style={styles.globalContainer}>
+    <GestureHandlerRootView style={styles.globalContainer}>
       {/* <Register /> */}
       {/* <SecRegister /> */}
       {/* <Login /> */}
       {/* <Settings /> */}
-      <SubsInfo />
-    </View>
+      {/* <SubsInfo /> */}
+      <NewSubs />
+    </GestureHandlerRootView>
   );
 }
 
