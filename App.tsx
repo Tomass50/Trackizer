@@ -12,6 +12,8 @@ import {
 import Register from './src/screens/Register';
 import SecRegister from './src/screens/SecRegister';
 import Login from './src/screens/Login';
+import Settings from './src/screens/Settings';
+import SubsInfo from './src/screens/SubsInfo';
 
 function App(): JSX.Element {
   return (
@@ -19,6 +21,8 @@ function App(): JSX.Element {
       {/* <Register /> */}
       {/* <SecRegister /> */}
       {/* <Login /> */}
+      {/* <Settings /> */}
+      <SubsInfo />
     </View>
   );
 }
