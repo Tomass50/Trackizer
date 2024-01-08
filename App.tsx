@@ -16,6 +16,7 @@ import Settings from './src/screens/Settings';
 import SubsInfo from './src/screens/SubsInfo';
 import NewSubs from './src/screens/NewSub';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import CreditCard from './src/screens/CreditCard';
 
 function App(): JSX.Element {
   return (
@@ -25,7 +26,8 @@ function App(): JSX.Element {
       {/* <Login /> */}
       {/* <Settings /> */}
       {/* <SubsInfo /> */}
-      <NewSubs />
+      {/* <NewSubs /> */}
+      <CreditCard />
     </GestureHandlerRootView>
   );
 }
