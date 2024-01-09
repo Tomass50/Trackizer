@@ -17,6 +17,7 @@ import SubsInfo from './src/screens/SubsInfo';
 import NewSubs from './src/screens/NewSub';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import CreditCard from './src/screens/CreditCard';
+import Calendar from './src/screens/Calendar';
 
 function App(): JSX.Element {
   return (
@@ -27,7 +28,8 @@ function App(): JSX.Element {
       {/* <Settings /> */}
       {/* <SubsInfo /> */}
       {/* <NewSubs /> */}
-      <CreditCard />
+      {/* <CreditCard /> */}
+      <Calendar />
     </GestureHandlerRootView>
   );
 }

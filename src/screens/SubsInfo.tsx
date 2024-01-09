@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
 import {svgArrowDown, svgSpotBig, svgTrash} from '../constants/constants';
-import SectionList from '../components/SubInfo.tsx/SectionList';
+import SectionList from '../components/SubInfo/SectionList';
 import SecondaryBtn from '../components/SecondaryBtn';
 
 const SubsInfo = () => {
