@@ -1,13 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import {SvgXml} from 'react-native-svg';
-import {svgAdd} from '../../constants/constants';
+import {svgAdd} from '../constants/constants';
 
-const DropArea = () => {
+type DropAreaProps = {
+  cStyle?: StyleProp<ViewStyle>;
+};
+
+const DropArea: React.FC<DropAreaProps> = ({cStyle}) => {
   return (
-    <TouchableOpacity style={style.container}>
-      <View style={style.secContainer}>
-        <Text style={style.text}>Add new card</Text>
+    <TouchableOpacity style={[styles.container, cStyle]}>
+      <View style={styles.secContainer}>
+        <Text style={styles.text}>Add new card</Text>
         <View style={{alignItems: 'flex-end'}}>
           <SvgXml xml={svgAdd} />
         </View>
@@ -16,16 +27,12 @@ const DropArea = () => {
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 52,
-    paddingHorizontal: 104,
-    paddingVertical: 16,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 16,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderStyle: 'dashed',
     borderColor: '#4E4E61',
   },

@@ -5,7 +5,7 @@ import {svgSetting} from '../constants/constants';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Cards from '../components/CreditCard/Cards';
 import Subscriptions from '../components/CreditCard/Subscriptions';
-import DropArea from '../components/CreditCard/DorpArea';
+import DropArea from '../components/DorpArea';
 
 const CreditCard = () => {
   return (
@@ -29,7 +29,7 @@ const CreditCard = () => {
 
       <View style={styles.bottomContainer}>
         <View style={{width: 328, marginTop: 24}}>
-          <DropArea />
+          <DropArea cStyle={{paddingHorizontal: 104, paddingVertical: 16}} />
         </View>
       </View>
     </ScrollView>
