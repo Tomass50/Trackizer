@@ -1,19 +1,25 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, StyleProp, ViewStyle} from 'react-native';
 
-const Indicator = () => {
+type IndicatorProps = {
+  name: string;
+  count: string;
+  containerStyle?: StyleProp<ViewStyle>;
+};
+
+const Indicator: React.FC<IndicatorProps> = ({name, count, containerStyle}) => {
   return (
-    <View style={styles.container}>
-      <View />
-      <Text>Active Subs</Text>
-      <Text>12</Text>
+    <View style={[styles.container]}>
+      <View style={[styles.line, containerStyle]} />
+      <Text style={styles.indName}>{name}</Text>
+      <Text style={styles.number}>{count}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: 104,
+    width: 'auto',
     height: 'auto',
     borderRadius: 16,
     backgroundColor: 'rgba(78, 78, 97, 0.20)',
@@ -21,11 +27,28 @@ const styles = StyleSheet.create({
     borderTopColor: '#FFA699',
     justifyContent: 'center',
     paddingVertical: 16,
+    paddingHorizontal: 18,
   },
   line: {
     width: 46,
     height: 1,
-    backgroundColor:''
+    top: -16,
+  },
+  indName: {
+    color: '#83839C',
+    textAlign: 'center',
+    fontSize: 12,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: 16,
+  },
+  number: {
+    color: '#FFF',
+    textAlign: 'center',
+    fontSize: 14,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: 20,
   },
 });
 
