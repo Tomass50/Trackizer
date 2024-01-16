@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  ScrollView,
+} from 'react-native';
 import Input from '../components/Input';
 import MainBtn from '../components/mainBtn';
 import SecondaryBtn from '../components/SecondaryBtn';
 
-const SecRegister = () => {
+const SecRegister = ({navigation}: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -55,6 +62,10 @@ const SecRegister = () => {
     }
   };
 
+  const handleRegisterSecPress = () => {
+    navigation.navigate('Register 2');
+  };
+
   const renderIndicatorPart = () => {
     const color = getPasswordStrengthColor();
 
@@ -72,14 +83,18 @@ const SecRegister = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Image
-        source={require('../Assets/logo.png')}
-        alt="logo"
-        style={styles.logo}
-      />
+    <ScrollView style={styles.container}>
+      <SafeAreaView />
 
-      <View style={styles.form}>
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../Assets/logo.png')}
+          alt="logo"
+          style={styles.logo}
+        />
+      </View>
+
+      <View style={styles.formContainer}>
         <Input
           label="Email address"
           value={email}
@@ -90,50 +105,53 @@ const SecRegister = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-
-        <View style={styles.indicatorCont}>
-          <View style={styles.firstSec} />
-          <View style={styles.middleSections} />
-          <View style={styles.middleSections} />
-          <View style={styles.lastSec} />
-        </View>
       </View>
 
-      <Text style={styles.text}>
-        Use 8 or more characters with a mix of letters, numbers & symbols.
-      </Text>
+      <View style={styles.indicatorCont}>
+        <View style={styles.firstSec} />
+        <View style={styles.middleSections} />
+        <View style={styles.middleSections} />
+        <View style={styles.lastSec} />
+      </View>
 
-      <View style={styles.mainBtnContainer}>
+      <View style={{alignItems: 'center', marginTop: 16, gap: 40}}>
+        <Text style={styles.text}>
+          Use 8 or more characters with a mix of letters, numbers & symbols.
+        </Text>
         <MainBtn title="Get started, it’s free!" />
       </View>
 
-      <View style={{alignItems: 'center', bottom: 20}}>
-        <Text style={styles.secText}>If you don't have an account yet?</Text>
-        <SecondaryBtn title="Sign Un" />
+      <View
+        style={{
+          alignItems: 'center',
+          marginTop: 100,
+          gap: 20,
+          marginBottom: 30,
+        }}>
+        <Text style={styles.secText}>Do you have already an account?</Text>
+        <SecondaryBtn title="Sign In" />
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  logoContainer: {
     alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 58,
   },
   logo: {
     width: 146,
     height: 24,
-    marginTop: 58,
-    paddingRight: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 11,
   },
-  form: {
-    flex: 1,
+  formContainer: {
     alignItems: 'center',
-    gap: 25,
-    top: 100,
+    marginTop: 165,
+    gap: 36,
   },
   passwordStrengthIndicator: {
     marginTop: 10,
@@ -141,7 +159,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   indicatorCont: {
+    marginTop: 24,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: 2,
   },
   firstSec: {
@@ -166,10 +187,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 16,
     letterSpacing: 0.2,
-    bottom: 125,
-  },
-  mainBtnContainer: {
-    bottom: 100,
   },
   secText: {
     color: '#FFF',
@@ -178,8 +195,14 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 20,
     letterSpacing: 0.2,
-    bottom: 10,
   },
 });
 
 export default SecRegister;
+
+// <View style={styles.mainBtnContainer}>
+// </View>
+
+// <View style={{alignItems: 'center', bottom: 20}}>
+
+// </View>

@@ -12,7 +12,10 @@ import GoogleBtn from '../components/googleBtn';
 import FacebookBtn from '../components/FacebookBtn';
 import SecondaryBtn from '../components/SecondaryBtn';
 
-const Register: React.FC = () => {
+const Register: React.FC = ({navigation}: any) => {
+  const handleSecRegisterPress = () => {
+    navigation.navigate('Register 2');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -30,7 +33,10 @@ const Register: React.FC = () => {
       <Text style={styles.text}>or</Text>
 
       <View style={styles.secBtnContainer}>
-        <SecondaryBtn title="Sign up with E-mail" />
+        <SecondaryBtn
+          title="Sign up with E-mail"
+          onPress={handleSecRegisterPress}
+        />
 
         <Text style={styles.caption}>
           By registering, you agree to our Terms of Use. Learn how we collect,

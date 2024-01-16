@@ -15,6 +15,7 @@ const Counter = () => {
   const increasePrice = () => {
     setMonthlyPrice(prevPrice => prevPrice + 1.0);
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btn} onPress={decreasePrice}>

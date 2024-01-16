@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -19,20 +19,19 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import CreditCard from './src/screens/CreditCard';
 import Calendar from './src/screens/Calendar';
 import SpendingBudgets from './src/screens/SpendingBudgets';
+import Home from './src/screens/Home';
+import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigation/AppStack';
+import AuthStack from './src/navigation/AuthStack';
 
 function App(): JSX.Element {
+  const [isLoggedIn, setLoggedIn] = useState(true);
   return (
-    <GestureHandlerRootView style={styles.globalContainer}>
-      {/* <Register /> */}
-      {/* <SecRegister /> */}
-      {/* <Login /> */}
-      {/* <Settings /> */}
-      {/* <SubsInfo /> */}
-      {/* <NewSubs /> */}
-      {/* <CreditCard /> */}
-      {/* <Calendar /> */}
-      <SpendingBudgets />
-    </GestureHandlerRootView>
+    <NavigationContainer>
+      <GestureHandlerRootView style={styles.globalContainer}>
+        {isLoggedIn ? <AppStack /> : <AuthStack />}
+      </GestureHandlerRootView>
+    </NavigationContainer>
   );
 }
 

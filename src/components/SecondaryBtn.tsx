@@ -3,11 +3,12 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 type SecondaryBtnProps = {
   title: string;
+  onPress?: () => void;
 };
 
-const SecondaryBtn: React.FC<SecondaryBtnProps> = ({title}) => {
+const SecondaryBtn: React.FC<SecondaryBtnProps> = ({title, onPress}) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.content}>
         <Text style={styles.text}>{title}</Text>
       </View>

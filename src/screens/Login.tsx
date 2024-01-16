@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  ScrollView,
+} from 'react-native';
 import Input from '../components/Input';
 import MyCheck from '../components/CheckBox';
 import MainBtn from '../components/mainBtn';
 import SecondaryBtn from '../components/SecondaryBtn';
 
-const Login = () => {
+const Login = ({navigation}: any) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,65 +24,73 @@ const Login = () => {
     setPassword(text);
   };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Image
-        source={require('../Assets/logo.png')}
-        alt="logo"
-        style={styles.logo}
-      />
+  const handleRegisterPress = () => {
+    navigation.navigate('Register 1');
+  };
 
-      <View style={styles.form}>
+  return (
+    <ScrollView style={styles.container}>
+      <SafeAreaView />
+
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../Assets/logo.png')}
+          alt="logo"
+          style={styles.logo}
+        />
+      </View>
+
+      <View style={styles.formContainer}>
         <Input label="Login" value={login} onChange={handleLoginChange} />
         <Input
           label="Password"
           value={password}
           onChange={handlePasswordChange}
         />
-
-        <View style={styles.checkText}>
-          <MyCheck title="Remember Me" />
-          <Text style={styles.text}>Forgot Password </Text>
-        </View>
-
-        <View>
-          <MainBtn title="Sign In" />
-        </View>
-
-        <View style={styles.contBtnText}>
-          <Text style={styles.textWhite}>
-            If you don't have an account yet?
-          </Text>
-          <SecondaryBtn title="Sing Un" />
-        </View>
       </View>
-    </SafeAreaView>
+
+      <View style={styles.checkTextContainer}>
+        <MyCheck title="Remember Me" />
+        <Text style={styles.text}>Forgot Password </Text>
+      </View>
+
+      <View
+        style={{alignItems: 'center', justifyContent: 'center', marginTop: 26}}>
+        <MainBtn title="Sign In" />
+      </View>
+
+      <View style={styles.bottomContainer}>
+        <Text style={styles.textWhite}>If you don't have an account yet?</Text>
+        <SecondaryBtn title="Sing Un" onPress={handleRegisterPress} />
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  logoContainer: {
+    marginTop: 58,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   logo: {
     width: 146,
     height: 24,
-    marginTop: 58,
-    paddingRight: 0,
+  },
+  formContainer: {
+    marginTop: 150,
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    gap: 11,
+    gap: 36,
   },
-  form: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 25,
-    top: 100,
-  },
-  checkText: {
+  checkTextContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 24,
     gap: 75,
   },
   text: {
@@ -94,11 +109,20 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     letterSpacing: 0.2,
   },
-  contBtnText: {
+  bottomContainer: {
+    marginTop: 150,
     alignItems: 'center',
-    bottom: -85,
-    gap: 8,
+    gap: 20,
   },
 });
 
 export default Login;
+
+// <View style={styles.checkText}>
+
+// </View>
+
+//   <View style={styles.contBtnText}>
+
+//   </View>
+// </View>
