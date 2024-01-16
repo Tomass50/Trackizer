@@ -21,15 +21,16 @@ import Calendar from './src/screens/Calendar';
 import SpendingBudgets from './src/screens/SpendingBudgets';
 import Home from './src/screens/Home';
 import {NavigationContainer} from '@react-navigation/native';
-import AppStack from './src/navigation/AppStack';
+import AppStack from './src/navigation/AppTab';
 import AuthStack from './src/navigation/AuthStack';
+import AppTab from './src/navigation/AppTab';
 
 function App(): JSX.Element {
   const [isLoggedIn, setLoggedIn] = useState(true);
   return (
     <NavigationContainer>
       <GestureHandlerRootView style={styles.globalContainer}>
-        {isLoggedIn ? <AppStack /> : <AuthStack />}
+        {isLoggedIn ? <AppTab /> : <AuthStack />}
       </GestureHandlerRootView>
     </NavigationContainer>
   );

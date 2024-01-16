@@ -8,7 +8,7 @@ import CreditCard from '../screens/CreditCard';
 
 const Tab = createBottomTabNavigator();
 
-const AppStack = () => {
+const AppTab = () => {
   return (
     <Tab.Navigator
       screenOptions={{headerShown: false}}
@@ -21,4 +21,4 @@ const AppStack = () => {
   );
 };
 
-export default AppStack;
+export default AppTab;
